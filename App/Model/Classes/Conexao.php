@@ -1,7 +1,7 @@
 <?php
 
 //namespace da classe
-
+namespace App\Model\Classes;
 
 //classe de conexão
 class Conexao
@@ -15,7 +15,7 @@ class Conexao
 		try{
 
 			// criando objeto da conexão
-			$pdo = new PDO("mysql:host=localhost;dbname=estoque", "root", "");
+			$pdo = new \PDO("mysql:host=localhost;dbname=estoque", "root", "");
 			echo "Conectado!";
 
 		} catch (PDOException $e){

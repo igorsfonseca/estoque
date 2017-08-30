@@ -32,13 +32,6 @@
 		        		<a class="nav-link" href="cadastro-produto.php"> Cadastrar Produto </a>
 		    		</li>
 		    	</ul>
-
-		    	<!-- formulário de acesso ao sistema -->
-		    	<form class="form-inline my-lg-0">
-		    		<input class="form-control mr-sm-2" type="text" placeholder="Usuário">
-		    		<input class="form-control mr-sm-2" type="text" placeholder="Senha">
-		    		<input class="btn btn-primary my-sm-0" type="submit" value="Entrar"></input>
-		    	</form>
 			</div>
 		</nav>
 

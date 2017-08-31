@@ -78,7 +78,22 @@
 					$inser->bindValue(':quant', $quant);
 					$inser->bindValue(':valoru', $valoru);
 					$inser->bindValue(':valort', $valort);
-					$inser->execute();
+
+					// testando se já existe o produto cadastrado
+					// VALIDAR é a variável que vai armazenar os valores recuperados da base de dados
+					$validar = $conn->prepare("SELECT * FROM produtos WHERE produto = :produto AND valorunit = :valoru");
+					$validar->execute(array($produto));
+					if($validar->rowCount() == 0){
+
+						$inser->execute();
+
+					} elseif($validar->rowCount() >= 1){
+
+						$qtd = $quant + $validar['quantidade'];
+						$res = $qtd + $valoru;
+						$inser = $conn->prepare("INSERT INTO ");
+
+					}
 
 					//chamando função cadastro
 					echo "<script> cadastro() </script>";

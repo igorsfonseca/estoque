@@ -1,67 +1,61 @@
 <?php
 
-	//incluindo conexao com DB
-	require_once 'Classes/Conexao.php';
+//incluindo classe de conexão
+require_once "Classes/Conexao.php";
 
-	//usando a classe conexao
-	use \App\Model\Classes\Conexao;
+//testando conexão e criando objeto da classe conexão
+//CONN é a variável que recebe o estancioamento da classe
+$conn = conectar();
 
-	//estanciando classe conexao
-	$connINS = new Conexao();
-	$connINS->conectar();
+//recebendo dados do formulário
+$data = isset($_GET['data']) ? $_GET['data'] : 0;
+$produto = isset($_GET['produto']) ? $_GET['produto'] : 0;
+$quant = isset($_GET['quant']) ? $_GET['quant'] : 0;
+$valoru = isset($_GET['valoru']) ? $_GET['valoru'] : 0;
 
-	//recebendo dados do formulário
-	$data = $_GET['data'];
-	$produto = $_GET['produto'];
-	$quant = $_GET['quant'];
-	$valorunit = $_GET['valorunit'];
+//verificando se todos os dados foram preenchidos
+if($data == "" || $produto == "" || $quant == "" || $valoru == ""){
 
-	//verificando se todos os campos foram preenchidos
-	if($data == "" || $produto == "" || $quant == "" || $valorunit == ""){
+	//chamando a função voltar
+	echo "<script> voltar() </script>";
+	echo "<center><h3> Confira e tente novamente </h3></center>";
 
-		//função que retorna a página de cadastro
-		echo "<script> voltar() </script>";
-		echo "<center><h3> Confira e tente novamente. </h3></center>";
+}
 
-	} else {
+//tentando insert no DB
+try{
 
-		//obtendo o valor total
-		$res = $quant * $valorunit;
+	//INSER é a variável que irá receber a execução do método PREPARE setado por CONN
+	$inser = $conn->prepare("INSERT INTO produtos (data, produto, quantidade, valorunit) VALUES (:data, :produto, :quant, :valoru)");
+	$inser->bindValue(':data', $data);
+	$inser->bindValue(':produto', $produto);
+	$inser->bindValue(':quant', $quant);
+	$inser->bindValue(':valoru', $valoru);
+	$inser->execute();
 
-		//fazendo a inserção no DB
-		$insertProd = $connINS->prepare("INSERT INTO produtos (data, produto, quantidade, valorunit, valortotal) VALUES ('$data', '$produto', '$quant', '$valorunit', '$res')");
+} catch(PDOException $e){
 
-		//mensagem de retorno a página de cadastro e chamando a função insert
-		echo "<script> insert() </script>";
-		echo "<center><h3> Voltado para página de cadastro </h3></center>";
+	echo "erro ao inserir";
 
-	}
+}
 
 ?>
 
 <!DOCTYPE html>
-	<html>
+<html>
 	<head>
-		<title> Inserindo Produto</title>
+		<title> Inserindo produto </title>
+
 		<script>
 			
-			function voltar(){
-
-				//função que avisa campo vazio e retorna para página de cadastro
-				alert("Todos os campos devem ser preenchidos!")
-				setTimeout("window.location='../../public/cadastro-produto.php'", 2000);
-
-			}
-
-			function insert(){
-
-				//função confirma cadastro e volta para página de cadastro
-				alert("Produto cadastrado com sucesso!");
-				settimeout("window.location='../../public/cadastro-produto.php'", 2000);
-
+			//função voltar, para voltar para o fomrulário de cadastro
+			function(){
+				alert("Todos os dados devem ser preenchidos!");
+				setTimeout("window.location='../../public/cadastr-produto.php'", 2000);
 			}
 
 		</script>
+
 	</head>
 	<body>
 

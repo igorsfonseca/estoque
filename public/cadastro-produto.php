@@ -54,7 +54,7 @@
 						<input type="date" name="data" class="form-control marg-top">
 						<input type="text" name="produto" class="form-control marg-top" placeholder="Produto">
 						<input type="number" name="quant" class="form-control marg-top" placeholder="Quantidade">
-						<input type="number" name="valorunit" class="form-control marg-top" placeholder="Valor Unitário (R$)">
+						<input type="number" name="valoru" class="form-control marg-top" placeholder="Valor Unitário (R$)">
 						<input type="submit" value="Cadastrar" class="btn btn-primary marg-top">
 
 					</form>

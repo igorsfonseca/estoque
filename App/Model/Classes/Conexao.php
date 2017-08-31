@@ -1,33 +1,28 @@
 <?php
 
-//namespace da classe
-namespace App\Model\Classes;
+//classe de conexao com DB
 
-//classe de conexão
-class Conexao extends \PDO
-{
+//establecendo a função conectar
+function conectar(){
 
-	// função conectar
-	public function conectar()
-	{
+	//tentando conectar com try
+	try{
 
-		//iniciando try catch
-		try{
+		//criando objeto da Classe PDO  nativa do PHP
+		$pdo = new PDO("mysql:host=localhost;dbname=estoque", "root", "");
 
-			// criando objeto da conexão
-			$pdo = new PDO("mysql:host=localhost;dbname=estoque", "root", "");
-			echo "Conectado!";
+		//mensagem de conexão bem sucedida
+		echo "Conectado!";
 
-		} catch (PDOException $e){
+	//em caso de erro
+	} catch (PDOException $e){
 
-			//mensagem a ser exibida em casa de falha de conexão
-			echo $e->getMessage();
-
-		}
-		
-		//retorno da função
-		return $pdo;
+		//mensagem de erro de conexão
+		echo $e->getMessage();
 
 	}
+
+	//retorno da função
+	return $pdo;
 
 }

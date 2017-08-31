@@ -11,8 +11,8 @@ function conectar(){
 		//criando objeto da Classe PDO  nativa do PHP
 		$pdo = new PDO("mysql:host=localhost;dbname=estoque", "root", "");
 
-		//mensagem de conexão bem sucedida
-		echo "Conectado!";
+		// //mensagem de conexão bem sucedida
+		// echo "Conectado!";
 
 	//em caso de erro
 	} catch (PDOException $e){

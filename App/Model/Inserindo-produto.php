@@ -79,25 +79,51 @@
 					$inser->bindValue(':valoru', $valoru);
 					$inser->bindValue(':valort', $valort);
 
-					// testando se já existe o produto cadastrado
-					// VALIDAR é a variável que vai armazenar os valores recuperados da base de dados
-					$validar = $conn->prepare("SELECT * FROM produtos WHERE produto = :produto AND valorunit = :valoru");
-					$validar->execute(array($produto));
+					//verificando se o produto já exuste no DB
+					$validar = $conn->prepare("SELECT * FROM produtos WHERE produto = :produto and valorunit = :valoru");
+					$validar->bindValue(':produto', $produto);
+					$validar->bindValue(':valoru', $valoru);
+					$validar->execute();
 					if($validar->rowCount() == 0){
 
+						//Se já existir esse código é executado
+						//chamando função cadastro
 						$inser->execute();
+						echo "<script> cadastro() </script>";
+						echo "<center><h3> Voltando a página de cadastro... </h3></center>";
 
-					} elseif($validar->rowCount() >= 1){
+					} else {
 
-						$qtd = $quant + $validar['quantidade'];
-						$res = $qtd + $valoru;
-						$inser = $conn->prepare("INSERT INTO ");
+						//se não existir esse código é executado
+
+						//buscando dados da linha
+						$busca = $conn->prepare("SELECT * FROM produtos WHERE produto = :produto and valorunit = :valoru");
+						$busca->bindValue(':produto', $produto);
+						$busca->bindValue(':valoru', $valoru);
+						$busca->execute();
+
+						//listando dados
+						$linha = $busca->fetch(PDO::FETCH_ASSOC);
+
+						//somando valores do DB com os novos
+						$qtd = $quant + $linha['quantidade'];
+						$valort = $qtd * $valoru;
+
+						//inserindo os novos dados
+						$valido = $conn->prepare("UPDATE produtos SET data = :data, quantidade = :quant, valortotal = :valort WHERE produto = :produto");
+						$valido->bindValue(':data', $data);
+						$valido->bindValue(':quant', $qtd);
+						$valido->bindValue(':valort', $valort);
+						$valido->bindValue(':produto', $produto);
+						$valido->execute();
+
+						//chamando função cadastro
+						echo "<script> cadastro() </script>";
+						echo "<center><h3> Voltando a página de cadastro... </h3></center>";
+
+
 
 					}
-
-					//chamando função cadastro
-					echo "<script> cadastro() </script>";
-					echo "<center><h3> Voltando a página de cadastro </h3></center>";
 
 				} catch(PDOException $e){
 

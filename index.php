@@ -16,6 +16,11 @@
 
 		<!-- link css proprio -->
 		<link rel="stylesheet" type="text/css" href="def.css">
+		<style>
+			.cor{
+				color: #fff;
+			}
+		</style>
 	
 	</head>
 	<body>
@@ -29,14 +34,15 @@
 		        		<a class="nav-link" href="index.php"> Home <span class="sr-only">(current)</span></a>
 		    		</li>
 		    		<li class="nav-item">
-		        		<a class="nav-link" href="public/cadastro-produto.php"> Cadastrar Produto </a>
+		        		<a class="nav-link" href="#"> Cadastrar Usuário </a>
 		    		</li>
 		    	</ul>
 
 		    	<!-- formulário de acesso ao sistema -->
-		    	<form class="form-inline my-lg-0">
-		    		<input class="form-control mr-sm-2" type="text" placeholder="Usuário">
-		    		<input class="form-control mr-sm-2" type="text" placeholder="Senha">
+		    	<div class="mr-sm-2 cor"> Login </div>
+		    	<form action="App/Model/logando.php" method="POST" class="form-inline my-lg-0">
+		    		<input class="form-control mr-sm-2" type="text" placeholder="Usuário" name="usuario">
+		    		<input class="form-control mr-sm-2" type="text" placeholder="Senha" name="senha">
 		    		<input class="btn btn-primary my-sm-0" type="submit" value="Entrar"></input>
 		    	</form>
 			</div>

@@ -28,7 +28,7 @@
 			function noexiste(){
 
 				//mensagem que informa usuário não existente
-				alert("Usuário não enconrtado, confira e tente novamente.");
+				alert("Usuário não encontrado, confira e tente novamente.");
 				//voltando a pagina de login
 				setTimeout("window.location='../../index.php'");
 
@@ -75,17 +75,20 @@
 				if($validing->rowCount() == 0){
 
 					// chamando função NOEXISTE
+					sleep(2);
 					echo "<script> noexiste() </script>";
 
 				} else {
 
 					// iniciando sessão
 					session_start();
-					$_SESSION['usuario'] = $_SESSION['usuario'];
-					$_SESSION['senha'] = $_SESSION['senha'];
+					$_SESSION['usuario'] = $_POST['usuario'];
+					$_SESSION['senha'] = $_POST['senha'];
 
 					// chamando função de entrada no painel
 					echo "<script> login() </script>";
+					// mensagem de redirecionamento
+					echo "<center><h3> Abrindo painel de controle... </h3></center>";
 
 				}
 

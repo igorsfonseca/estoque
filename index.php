@@ -42,7 +42,7 @@
 		    	<div class="mr-sm-2 cor"> Login </div>
 		    	<form action="App/Model/logando.php" method="POST" class="form-inline my-lg-0">
 		    		<input class="form-control mr-sm-2" type="text" placeholder="Usuário" name="usuario">
-		    		<input class="form-control mr-sm-2" type="text" placeholder="Senha" name="senha">
+		    		<input class="form-control mr-sm-2" type="password" placeholder="Senha" name="senha">
 		    		<input class="btn btn-primary my-sm-0" type="submit" value="Entrar"></input>
 		    	</form>
 			</div>

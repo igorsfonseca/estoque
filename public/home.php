@@ -21,10 +21,22 @@
 				color: #fff;
 			}
 		</style>
+
+		<script>
+			
+			function nologin(){
+
+				alert("Você não está logado!");
+				setTimeout("window.location='../index.php'");
+
+			}
+
+		</script>
 	
 	</head>
 	<body>
 
+		
 		<!-- cabecalho, menu e acesso -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
@@ -37,8 +49,49 @@
 		        		<a class="nav-link" href="cadastro-produto.php"> Cadastrar Produto </a>
 		    		</li>
 		    	</ul>
+
+		    	<!-- //botão sair -->
+		    	<a href="../App/Model/Logout.php"><input class="btn btn-primary my-sm-0" type="button" value="Sair"></input></a>
+
 			</div>
 		</nav>
+
+		<?php
+
+			// verificando se existe um sessão aberta
+
+			// abrindo sessão
+			session_start();
+
+			// condiçional
+			if(!isset($_SESSION['usuario']) || !isset($_SESSION['senha'])){
+
+				// em caso de não haver sessão aberta
+				sleep(2);
+				echo "<script> nologin() </script>";
+
+			} else {
+
+				// inserindo a conexao
+				require_once '../App/Model/Classes/Conexao.php';
+
+				//criando objeto da classe conexao
+				$conn = conectar();
+
+				// selecionado nome pessoa logada
+				$nome = $conn->prepare("SELECT * FROM usuarios WHERE usuario = :usuario");
+				$nome->bindValue(':usuario', $_SESSION['usuario']);
+				$nome->execute();
+				while($linha = $nome->fetch(PDO::FETCH_ASSOC)){
+					
+					// mostrando o nome de quem está logado
+					echo "Bem vindo(a), " . $linha['nome'];
+
+				}
+
+			}
+
+		?>
 
 
 

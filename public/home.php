@@ -48,6 +48,9 @@
 		    		<li class="nav-item">
 		        		<a class="nav-link" href="cadastro-produto.php"> Cadastrar Produto </a>
 		    		</li>
+		    		<li class="nav-item">
+		        		<a class="nav-link" href="relatorios.php"> Relatórios </a>
+		    		</li>
 		    	</ul>
 
 		    	<!-- //botão sair -->

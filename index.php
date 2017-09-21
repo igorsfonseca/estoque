@@ -48,13 +48,6 @@
 			<div class="row">
 				<div class="col-md-1"></div>
 				<div class="col-md-10">
-					
-					<div class="frente-pag">
-
-						teste
-						
-					</div>
-
 				</div>
 				<div class="col-md-1"></div>
 			</div>

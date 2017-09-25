@@ -45,16 +45,21 @@
 		<div class="container-fluid">
 			<div class="row">
 				
-				<div class="col-md-1"></div>
+				<div class="col-md-2"></div>
+
 				<!-- //tipos de relatórios -->
 				<div class="col-md-3">
 					<h5> Relatório por produto </h5>
-					<input type="text" name="produto" class="form-control marg-top" placeholder="Produto">
-					<input type="submit" value="Gerar" class="btn btn-primary marg-top">
+					<form action="#" method="POST">
+						<input type="text" name="produto" class="form-control marg-top" placeholder="Produto">
+						<input type="submit" value="Gerar" class="btn btn-primary marg-top">
+					</form>
 				</div>
 
+				<div class="col-md-1"></div>
+
 				<div class="col-md-3">
-					<form action="App/Model/Relatorios/Relatorio-data.php">
+					<form action="../App/Model/Relatorios/Relatorio-data.php" method="POST">
 						<h5> Relatório por data </h5>
 						Data inicial
 						<input type="date" name="datai" class="form-control">
@@ -62,12 +67,6 @@
 						<input type="date" name="dataf" class="form-control">
 						<input type="submit" value="Gerar" class="btn btn-primary marg-top">
 					</form>
-				</div>
-
-				<div class="col-md-4">
-					<h5> Relatório por quantidade </h5>
-					<input type="number" name="quant" class="form-control marg-top" placeholder="Quantidade">
-					<input type="submit" value="Gerar" class="btn btn-primary marg-top">
 				</div>
 
 			</div>

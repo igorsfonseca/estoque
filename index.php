@@ -48,6 +48,9 @@
 			<div class="row">
 				<div class="col-md-1"></div>
 				<div class="col-md-10">
+
+					<center><h3> Página Inicial </h3></center>
+
 				</div>
 				<div class="col-md-1"></div>
 			</div>

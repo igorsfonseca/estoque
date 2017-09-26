@@ -48,7 +48,7 @@
 		<!-- // classe jumbotron - titulo da pagina -->
 		<div class="jumbotron">
 			
-			<center><h1> Relatórios </h1></center>
+			<center><h1> Relatório por Data </h1></center>
 
 		</div>
 
@@ -78,18 +78,24 @@
 					<br><br>
 
 					<!-- // botoes de geracao de arquivo -->
-					<button class="btn btn-success"> Gerar Excel </button>
+					<a href="gerar-planilha.php"><button class="btn btn-success"> Gerar Excel </button></a>
 					<button class="btn btn-danger"> Gerar PDF </button>
 
 					<?php
+
+						// abrindo sessão
+						session_start();
+						$_SESSION['datai'] = $dataini;
+						$_SESSION['dataf'] = $datafin;
 
 						// conectando com db
 						require_once "../Classes/Conexao.php";
 						$conn = conectar();
 
+						// consultando banco de dados
 						$consult = $conn->prepare("SELECT * FROM produtos WHERE data >= :dataini AND data <= :datafin");
-						$consult->bindValue(':dataini', $dataini);
-						$consult->bindValue(':datafin', $datafin);
+						$consult->bindValue(':dataini', $_SESSION['datai']);
+						$consult->bindValue(':datafin', $_SESSION['dataf']);
 						$consult->execute();
 
 					?>

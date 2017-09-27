@@ -4,7 +4,7 @@
 	<head>
 	
 		<meta charset="utf-8">
-		<title> Sistema de Busca sem refresh </title>
+		<title> Relatórios </title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
 		<!-- link jquery do google e javascript proprio -->
@@ -28,7 +28,7 @@
 		        		<a class="nav-link" href="home.php"> Home <span class="sr-only">(current)</span></a>
 		    		</li>
 		    		<li class="nav-item active">
-		        		<a class="nav-link" href="cadastro-produto.php"> Relatórios </a>
+		        		<a class="nav-link" href="relatorios.php"> Relatórios </a>
 		    		</li>
 		    	</ul>
 			</div>

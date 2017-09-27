@@ -4,7 +4,7 @@
 	<head>
 	
 		<meta charset="utf-8">
-		<title> Sistema de Busca sem refresh </title>
+		<title> Relatório por produto </title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
 		<!-- link jquery do google e javascript proprio -->
@@ -82,7 +82,6 @@
 
 					<!-- // botoes de geracao de arquivo -->
 					<a href="gerar-planilha-produtos.php"><button class="btn btn-success"> Gerar Excel </button></a>
-					<button class="btn btn-danger"> Gerar PDF </button>
 
 					<?php
 

@@ -46,7 +46,7 @@
 				<div class="col-md-1"></div>
 				<div class="col-md-10">
 
-					<center><h3> Página Inicial </h3></center>
+					<center><h3> Pagina Inicial </h3></center>
 
 				</div>
 				<div class="col-md-1"></div>

@@ -89,7 +89,7 @@
 						$_SESSION['dataf'] = $datafin;
 
 						// conectando com db
-						require_once "../Classes/Conexao.php";
+						require_once "../../Model/Classes/Conexao.php";
 						$conn = conectar();
 
 						// consultando banco de dados

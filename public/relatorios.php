@@ -50,7 +50,7 @@
 				<!-- //tipos de relatórios -->
 				<div class="col-md-3">
 					<h5> Relatório por produto </h5>
-					<form action="#" method="POST">
+					<form action="../App/view/Relatorios/Relatorio-produto.php" method="POST">
 						<input type="text" name="produto" class="form-control marg-top" placeholder="Produto">
 						<input type="submit" value="Gerar" class="btn btn-primary marg-top">
 					</form>
@@ -59,7 +59,7 @@
 				<div class="col-md-1"></div>
 
 				<div class="col-md-3">
-					<form action="../App/Model/Relatorios/Relatorio-data.php" method="POST">
+					<form action="../App/view/Relatorios/Relatorio-data.php" method="POST">
 						<h5> Relatório por data </h5>
 						Data inicial
 						<input type="date" name="datai" class="form-control">

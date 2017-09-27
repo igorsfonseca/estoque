@@ -51,6 +51,9 @@
 		    		<li class="nav-item">
 		        		<a class="nav-link" href="relatorios.php"> Relatórios </a>
 		    		</li>
+		    		<li class="nav-item">
+		        		<a class="nav-link" href="cadastro-usuario.php"> Cadastrar Usuário </a>
+		    		</li>
 		    	</ul>
 
 		    	<!-- //botão sair -->

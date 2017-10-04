@@ -115,7 +115,7 @@
 						<tbody>
 							
 							<?php while($linha = $consult->fetch(PDO::FETCH_ASSOC)){ ?>
-
+							$linha['data']=implode("/",array_reverse(explode("-",$linha['data'])));
 								<tr>
 
 									<td> <?php echo $linha['data']; ?> </td>
